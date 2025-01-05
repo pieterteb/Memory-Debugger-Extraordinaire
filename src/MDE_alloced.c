@@ -22,7 +22,7 @@ typedef struct {
 
 
 #ifdef MDE_DEBUG
-    static MDE_Alloced mde_alloced_ = (MDE_Alloced){ NULL, NULL, 0, 0 };
+    static MDE_Alloced mde_alloced_ = { NULL, NULL, 0, 0 };
 #endif
 
 
