@@ -45,11 +45,9 @@ void MDE_alloced_add(void* ptr, size_t size) {
 
 void MDE_alloced_remove(void* ptr) {
     void*  temp_ptr = NULL;
-    size_t temp_size = 0;
     for (size_t i = mde_alloced_.count; i != 0;) {
         --i;
         temp_ptr = mde_alloced_.ptrs[i];
-        temp_size = mde_alloced_.sizes[i];
         if (ptr == temp_ptr) {
             --mde_alloced_.count;
             return;
