@@ -59,9 +59,9 @@ void MDE_alloced_remove(void* ptr) {
     MDE_err("Attempted to free an unallocated or previously freed block of memory, %p.", ptr);
 }
 
-void MDE_alloced_set(void* old_ptr, void* new_ptr, size_t new_size) {
+void MDE_alloced_set(void** old_ptr, void* new_ptr, size_t new_size) {
     for (size_t i = 0; i < mde_alloced_.count; ++i) {
-        if (mde_alloced_.ptrs[i] == old_ptr) {
+        if (mde_alloced_.ptrs[i] == *old_ptr) {
             mde_alloced_.ptrs[i] = new_ptr;
             mde_alloced_.sizes[i] = new_size;
             return;
