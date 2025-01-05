@@ -1,6 +1,7 @@
 #include <stdlib.h>
 
 
+/* This file must not use debug version of malloc(). */
 #define MDE_NO_DEBUG
 
 

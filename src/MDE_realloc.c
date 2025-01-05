@@ -1,6 +1,7 @@
 #include <stdlib.h>
 
 
+/* This file must n ot use debug version of realloc(). */
 #define MDE_NO_DEBUG
 
 
