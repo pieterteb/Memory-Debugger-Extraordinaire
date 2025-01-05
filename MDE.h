@@ -2,11 +2,12 @@
 #define MDE_H
 
 
+
 #define MDE_DEBUG
 
 
 
-#ifdef MDE_DEBUG
+#if defined(MDE_DEBUG) && !defined(MDE_NO_DEBUG)
     #define malloc(size)        MDE_malloc(size)
     #define calloc(nmemb, size) MDE_calloc(nmemb, size)
     #define realloc(ptr, size)  MDE_realloc(ptr, size)

@@ -1,5 +1,9 @@
 #include <stdlib.h>
 
+
+#define MDE_NO_DEBUG
+
+
 #include "MDE.h"
 
 
