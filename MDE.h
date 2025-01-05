@@ -20,7 +20,9 @@ extern void* MDE_malloc(size_t size);
 extern void* MDE_calloc(size_t nmemb, size_t size);
 extern void* MDE_realloc(void* ptr, size_t size);
 
-extern void  MDE_free(void* ptr);
+extern void MDE_free(void* ptr);
+
+extern void MDE_alloced_print(FILE* stream);
 
 
 

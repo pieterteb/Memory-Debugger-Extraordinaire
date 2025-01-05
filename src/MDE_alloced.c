@@ -64,3 +64,16 @@ void MDE_alloced_remove(void* ptr) {
 size_t MDE_alloced_count() {
     return mde_alloced_.count;
 }
+
+
+extern void MDE_alloced_print(FILE* stream) {
+    size_t total_size = 0;
+    for (size_t i = 0; i < mde_alloced_.count; ++i) {
+        fprintf(stream, "Address: %p | Size: %zu\n", mde_alloced_.ptrs[i], mde_alloced_.sizes[i]);
+        total_size += mde_alloced_.sizes[i];
+    }
+    fprintf(stream, "Total cont: %zu\n"
+           "Total size: %zu\n", 
+           mde_alloced_.count, 
+           total_size);
+}
