@@ -3,8 +3,8 @@
 
 
 
-void MDE_warn(char* warning);
-void MDE_err(char* error);
+void MDE_warn(char* warning, ...);
+void MDE_err(char* error, ...);
 
 
 
