@@ -83,7 +83,7 @@ extern void MDE_alloced_print(FILE* stream) {
         fprintf(stream, "Address: %p | Size: %zu\n", mde_alloced_.ptrs[i], mde_alloced_.sizes[i]);
         total_size += mde_alloced_.sizes[i];
     }
-    fprintf(stream, "Total cont: %zu\n"
+    fprintf(stream, "Total count: %zu\n"
            "Total size: %zu\n", 
            mde_alloced_.count, 
            total_size);
