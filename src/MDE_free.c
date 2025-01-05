@@ -6,9 +6,13 @@
 
 
 #include "MDE.h"
+#include "MDE_alloced.h"
 
 
 
 extern void MDE_free(void* ptr) {
-    free(ptr);
+    if (ptr) {
+        MDE_alloced_remove(ptr);
+        free(ptr);
+    }
 }

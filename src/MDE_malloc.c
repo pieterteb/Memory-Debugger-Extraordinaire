@@ -6,9 +6,19 @@
 
 
 #include "MDE.h"
+#include "MDE_alloced.h"
+#include "MDE_print.h"
 
 
 
 extern void* MDE_malloc(size_t size) {
-    return malloc(size);
+    void* ptr = malloc(size);
+
+    if (!ptr) {
+        MDE_warn("Failed to malloc memory block of size %zu.", size);
+    } else {
+        MDE_alloced_add(ptr, size);
+    }
+
+    return ptr;
 }
