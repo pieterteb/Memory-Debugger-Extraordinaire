@@ -28,7 +28,7 @@ void MDE_warn(char* warning, ...) {
 
 void MDE_err(char* error, ...) {
     MDE_message();
-    fprintf(stderr, "ERROR - ", error);
+    fprintf(stderr, "ERROR - ");
 
     va_list args;
     va_start(args, error);
