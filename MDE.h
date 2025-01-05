@@ -16,7 +16,7 @@
     #define realloc(ptr, size)  MDE_realloc(ptr, size)
     
     #define free(ptr)           MDE_free(ptr)
-#endif
+#endif /* defined(MDE_DEBUG) && !defined(MDE_NO_DEBUG) */
 
 
 extern void* MDE_malloc(size_t size);
