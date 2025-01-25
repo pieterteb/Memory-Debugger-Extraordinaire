@@ -1,19 +1,42 @@
-# Memory Debugger Extraordinaire
-Memory Debugger Extraordinaire (MDE), is a memory debugging library for C development.
+# Memory Debugger Extraordinaire (MDE)
 
-MDE comes with a CMakeLists.txt file that can be linked to your main project as a library.
+**Memory Debugger Extraordinaire (MDE)** is a powerful memory debugging library designed for C development. It integrates seamlessly with your project using its provided `CMakeLists.txt` file and functions as a standalone library.
 
-Current Features:
-- Track allocated memory and get detailed warning/error messages if an error occurs.
-- Add comments to allocated memory as metadata. Useful if you want to track a specific memory block.
-- Crash a running program if memory warnings/errors occur.
-- Print a table containing all currently allocated memory with their corresponding metadata.
+---
 
-A warning is given if something unexpected happens, but the program can still function normally afterwards. For example, if implementation defined behaviour is encountered or if realloc runs out of memory.
+## Features
 
-An error is given if something unexpected happens which causes undefined behaviour, or if MDE is unable to function properly. For example, if MDE needs more memory than is available.
+MDE offers the following key features to enhance your debugging experience:
 
-If a warning or error occurs, MDE will not attempt to track the newly created pointer since it cannot always know how the program itself with the error.
+- **Memory Tracking**: Monitor allocated memory and receive detailed warning or error messages when issues occur.  
+- **Metadata Support**: Attach comments as metadata to allocated memory blocks, enabling easy tracking of specific allocations.  
+- **Program Crash on Errors**: Automatically crash the program when critical memory warnings or errors are detected, ensuring issues don't go unnoticed.  
+- **Memory Table**: Print a detailed table of all currently allocated memory blocks along with their associated metadata.  
 
-Future goals:
-- Detect overlapping memory.
+---
+
+## Warning vs. Error
+
+MDE differentiates between warnings and errors to help you identify the severity of issues:
+
+- **Warnings**: Issued when unexpected behavior occurs, but the program can continue functioning. Examples include:  
+  - Encountering implementation-defined behavior.  
+  - `realloc` running out of memory.
+
+- **Errors**: Issued for critical issues that result in undefined behavior or prevent MDE from functioning. Examples include:  
+  - Memory required by MDE exceeds availability.  
+  - Undefined behavior caused by unexpected circumstances.
+
+> ⚠️ **Important Note**: If a warning or error occurs, MDE will stop tracking the affected memory pointer, as it cannot reliably predict how the program will handle the error.
+
+---
+
+## Future Goals
+
+Looking ahead, the following features are planned for MDE:
+
+- **Overlap Detection**: Identify overlapping memory regions to prevent hard-to-diagnose bugs.
+
+---
+
+MDE simplifies memory debugging, giving you more control and insight into your C programs.
