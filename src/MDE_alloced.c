@@ -44,7 +44,7 @@ void MDE_alloced_add(void* ptr, size_t size) {
     ++mde_alloced_.count;
 }
 
-void MDE_alloced_remove(void* ptr) {
+void MDE_alloced_remove(void* ptr, const char* file_name, int line_number) {
     size_t i = 0;
 
     /* Find ptr. */
@@ -55,7 +55,7 @@ void MDE_alloced_remove(void* ptr) {
     }
 
     if (i == mde_alloced_.count) {
-        MDE_err("Attempted to free an unallocated or previously freed block of memory, %p.", ptr);
+        MDE_err(file_name, line_number, "Attempted to free an unallocated, or previously deallocated block of memory, %p. Undefined behaviour.", ptr);
         return;
     }
 
@@ -68,16 +68,16 @@ void MDE_alloced_remove(void* ptr) {
     }
 }
 
-void MDE_alloced_set(void** old_ptr, void* new_ptr, size_t new_size) {
+void MDE_alloced_set(void* old_ptr, void* new_ptr, size_t new_size, const char* file_name, int line_number) {
     for (size_t i = 0; i < mde_alloced_.count; ++i) {
-        if (mde_alloced_.ptrs[i] == *old_ptr) {
+        if (mde_alloced_.ptrs[i] == old_ptr) {
             mde_alloced_.ptrs[i] = new_ptr;
             mde_alloced_.sizes[i] = new_size;
             return;
         }
     }
 
-    MDE_err("Attempted to reallocate an unallocated or previously freed block of memory, %p.", old_ptr);
+    MDE_err(file_name, line_number, "Attempted to reallocate an unallocated, or previously deallocated block of memory, %p. Undefined behaviour.", old_ptr);
 }
 
 
@@ -97,9 +97,9 @@ extern void MDE_print_table(FILE* stream) {
            total_size);
 }
 
-extern void MDE_destroy() {
+extern void MDE_destroy(const char* file_name, int line_number) {
     free(mde_alloced_.ptrs);
     free(mde_alloced_.sizes);
 
-    MDE_warn("Destroyed alloced.");
+    MDE_warn(file_name, line_number, "Destroyed alloced.");
 }

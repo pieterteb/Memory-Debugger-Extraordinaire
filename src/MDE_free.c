@@ -10,9 +10,9 @@
 
 
 
-extern void MDE_free(void* ptr) {
+extern void MDE_free(void* ptr, const char* file_name, int line_number) {
     if (ptr) {
-        MDE_alloced_remove(ptr);
+        MDE_alloced_remove(ptr, file_name, line_number);
         free(ptr);
     }
 }

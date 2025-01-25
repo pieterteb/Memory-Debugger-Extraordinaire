@@ -3,8 +3,8 @@
 
 
 
-void MDE_warn(char* warning, ...);
-void MDE_err(char* error, ...);
+void MDE_warn(const char* file_name, int line_number, char* warning, ...);
+void MDE_err(const char* file_name, int line_number, char* error, ...);
 
 
 

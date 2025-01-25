@@ -7,5 +7,4 @@ add_library(MDE
             src/MDE_realloc.c
 )
 
-target_compile_features(MDE PRIVATE c_std_90)
 target_include_directories(MDE PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}" PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
