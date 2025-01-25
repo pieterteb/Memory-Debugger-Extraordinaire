@@ -24,6 +24,16 @@
  */
 extern void* MDE_malloc(size_t size, const char* file_name, int line_number);
 
+/**
+ * @brief Same as MDE_malloc(), but allows the user to set a comment as metadata for the allocated memory block. If @a formatted_comment is NULL, no comment is added.
+ * 
+ * @param size Number of bytes to allocate.
+ * @param file_name Name of file in which MDE_malloc_comment() was called.
+ * @param line_number Number of line in @a file_name on which MDE_malloc_comment() was called.
+ * @param formatted_comment Formatted string.
+ * @param ... Arguments for @a formatted_comment.
+ * @return void* 
+ */
 extern void* MDE_malloc_comment(size_t size, const char* file_name, int line_number, const char* formatted_comment, ...);
 
 /**
@@ -37,6 +47,17 @@ extern void* MDE_malloc_comment(size_t size, const char* file_name, int line_num
  */
 extern void* MDE_calloc(size_t nmemb, size_t size, const char* file_name, int line_number);
 
+/**
+ * @brief Same as MDE_calloc(), but allows the user to set a comment as metadata for the allocated memory block. If @a formatted_comment is NULL, no comment is added.
+ * 
+ * @param nmemb Number of objects.
+ * @param size Size of each object.
+ * @param file_name Name of file in which MDE_calloc_comment() was called.
+ * @param line_number Number of line in @a file_name on which MDE_calloc_comment() was called.
+ * @param formatted_comment Formatted string.
+ * @param ... Arguments for @a formatted_comment.
+ * @return void* 
+ */
 extern void* MDE_calloc_comment(size_t nmemb, size_t size, const char* file_name, int line_number, const char* formatted_comment, ...);
 
 /**
@@ -50,6 +71,17 @@ extern void* MDE_calloc_comment(size_t nmemb, size_t size, const char* file_name
  */
 extern void* MDE_realloc(void* ptr, size_t size, const char* file_name, int line_number);
 
+/**
+ * @brief Same as MDE_realloc(), but allows the user to set a comment as metadata for the reallocated memory block. If @a formatted_comment is NULL, no comment is added. If the old memory block already had a comment, that comment is overwritten.
+ * 
+ * @param ptr Pointer to the memory area to be reallocated.
+ * @param size New size of the array in bytes.
+ * @param file_name Name of file in which MDE_realloc_comment() was called.
+ * @param line_number Number of line in @a file_name on which MDE_realloc_comment() was called.
+ * @param formatted_comment Formatted string.
+ * @param ... Arguments for @a formatted_comment.
+ * @return void* 
+ */
 extern void* MDE_realloc_comment(void* ptr, size_t size, const char* file_name, int line_number, const char* formatted_comment, ...);
 
 
@@ -61,9 +93,6 @@ extern void* MDE_realloc_comment(void* ptr, size_t size, const char* file_name, 
  * @param line_number Number of line in @a file_name on which MDE_free() was called.
  */
 extern void MDE_free(void* ptr, const char* file_name, int line_number);
-
-
-extern void* MDE_malloc_comment(size_t size, const char* file_name, int line_number, const char* comment, ...);
 
 
 /**
