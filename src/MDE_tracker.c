@@ -1,3 +1,4 @@
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -83,6 +84,22 @@ void MDE_tracker_set(void* old_ptr, void* new_ptr, size_t new_size, const char* 
     MDE_err(file_name, line_number, "Attempted to reallocate an unallocated, or previously deallocated block of memory, %p. Undefined behaviour.", old_ptr);
 }
 
+void MDE_tracker_set_comment(void* old_ptr, void* new_ptr, size_t new_size, const char* file_name, int line_number, const char* formatted_comment, va_list args) {
+    for (size_t i = 0; i < mde_tracker_.count; ++i) {
+        if (mde_tracker_.memories[i]->ptr == old_ptr) {
+            mde_tracker_.memories[i]->ptr = new_ptr;
+            mde_tracker_.memories[i]->size = new_size;
+            ++mde_tracker_.memories[i]->times_reallocated;
+
+            MDE_memory_set_comment(mde_tracker_.memories[i], file_name, line_number, formatted_comment, args);
+
+            return;
+        }
+    }
+
+    MDE_err(file_name, line_number, "Attempted to reallocate an unallocated, or previously deallocated block of memory, %p. Undefined behaviour.", old_ptr);
+}
+
 
 extern void MDE_tracker_print(FILE* stream) {
     size_t total_size = 0;
@@ -110,5 +127,5 @@ extern void MDE_tracker_destroy(const char* file_name, int line_number) {
     }
     free(mde_tracker_.memories);
 
-    MDE_warn(file_name, line_number, "Destroyed tracker.");
+    fprintf(stderr, "MDE tracker destroyed!\n");
 }
