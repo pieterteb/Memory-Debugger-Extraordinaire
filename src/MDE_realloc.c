@@ -6,8 +6,8 @@
 
 
 #include "MDE.h"
-#include "MDE_alloced.h"
 #include "MDE_print.h"
+#include "MDE_tracker.h"
 
 
 
@@ -24,7 +24,7 @@ extern void* MDE_realloc(void* ptr, size_t size, const char* file_name, int line
         MDE_warn(file_name, line_number, "Failed to realloc memory block at %p to size %zu.", ptr, size);
         new_ptr = ptr;
     } else {
-        MDE_alloced_set(ptr, new_ptr, size, file_name, line_number);
+        MDE_tracker_set(ptr, new_ptr, size, file_name, line_number);
     }
 
     return new_ptr;

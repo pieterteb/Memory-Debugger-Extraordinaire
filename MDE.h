@@ -49,13 +49,13 @@ extern void MDE_free(void* ptr, const char* file_name, int line_number);
  * 
  * @param stream Output stream to print to.
  */
-extern void MDE_print_table(FILE* stream);
+extern void MDE_tracker_print(FILE* stream);
 
 /**
  * @brief Deallocates all memory used by MDE.
  * 
  */
-extern void MDE_destroy(const char* file_name, int line_number);
+extern void MDE_tracker_destroy(const char* file_name, int line_number);
 
 
 #ifndef MDE_NO_DEBUG_MEM
@@ -64,7 +64,7 @@ extern void MDE_destroy(const char* file_name, int line_number);
 #   define MDE_realloc(ptr, size)   MDE_realloc((ptr), (size), __FILE__, __LINE__)
 #   define MDE_free(ptr)            MDE_free((ptr), __FILE__, __LINE__)
 
-#   define MDE_destroy()            MDE_destroy(__FILE__, __LINE__)
+#   define MDE_tracker_destroy()    MDE_tracker_destroy(__FILE__, __LINE__)
 #endif /* MDE_NO_DEBUG_MEM */
 
 #if defined(MDE_DEBUG) && !defined(MDE_NO_DEBUG_MEM)

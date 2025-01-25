@@ -6,9 +6,9 @@
 
 
 #include "MDE.h"
-#include "MDE_alloced.h"
 #include "MDE_memory.h"
 #include "MDE_print.h"
+#include "MDE_tracker.h"
 
 
 
@@ -29,7 +29,7 @@ extern void* MDE_malloc(size_t size, const char* file_name, int line_number) {
     } else {
         memory->ptr = ptr;
         memory->size = size;
-        MDE_alloced_add(memory, file_name, line_number);
+        MDE_tracker_add(memory, file_name, line_number);
     }
 
     return ptr;
