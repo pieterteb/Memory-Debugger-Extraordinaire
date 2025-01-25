@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 
 /* This file must not use debug versions of malloc & friends. */
