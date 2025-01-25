@@ -54,13 +54,11 @@ void MDE_alloced_remove(void* ptr) {
         }
     }
 
-    /* If pointer was not found, return error. */
     if (i == mde_alloced_.count) {
         MDE_err("Attempted to free an unallocated or previously freed block of memory, %p.", ptr);
         return;
     }
 
-    /* Else, update ptr count. */
     --mde_alloced_.count;
 
     /* Move pointers to fill gap. */
@@ -86,7 +84,6 @@ void MDE_alloced_set(void** old_ptr, void* new_ptr, size_t new_size) {
 extern void MDE_alloced_print(FILE* stream) {
     size_t total_size = 0;
 
-    /* Print table. */
     fputs("Address:       | Size (bytes):\n", stream);
     fputs("-------------------------------\n", stream);
     for (size_t i = 0; i < mde_alloced_.count; ++i) {
@@ -94,7 +91,6 @@ extern void MDE_alloced_print(FILE* stream) {
         total_size += mde_alloced_.sizes[i];
     }
 
-    /* Print totals. */
     fprintf(stream, "Total count: %zu\n"
            "Total size: %zu\n", 
            mde_alloced_.count, 
