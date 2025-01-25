@@ -2,7 +2,7 @@
 
 
 /* This file must not use debug version of free(). */
-#define MDE_NO_DEBUG
+#define MDE_NO_DEBUG_MEM
 
 
 #include "MDE.h"

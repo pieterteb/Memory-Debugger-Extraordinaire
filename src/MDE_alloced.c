@@ -3,7 +3,7 @@
 
 
 /* This file must not use debug versions of malloc & friends. */
-#define MDE_NO_DEBUG
+#define MDE_NO_DEBUG_MEM
 
 
 #include "MDE.h"

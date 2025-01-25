@@ -10,13 +10,13 @@
 
 
 
-#if defined(MDE_DEBUG) && !defined(MDE_NO_DEBUG)
+#if defined(MDE_DEBUG) && !defined(MDE_NO_DEBUG_MEM)
     #define malloc(size)        MDE_malloc(size)
     #define calloc(nmemb, size) MDE_calloc(nmemb, size)
     #define realloc(ptr, size)  MDE_realloc(ptr, size)
     
     #define free(ptr)           MDE_free(ptr)
-#endif /* defined(MDE_DEBUG) && !defined(MDE_NO_DEBUG) */
+#endif /* defined(MDE_DEBUG) && !defined(MDE_NO_DEBUG_MEM) */
 
 
 extern void* MDE_malloc(size_t size);

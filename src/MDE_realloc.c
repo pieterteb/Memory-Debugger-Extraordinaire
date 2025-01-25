@@ -2,7 +2,7 @@
 
 
 /* This file must n ot use debug version of realloc(). */
-#define MDE_NO_DEBUG
+#define MDE_NO_DEBUG_MEM
 
 
 #include "MDE.h"
