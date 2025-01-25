@@ -1,6 +1,8 @@
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
 
+#include "MDE.h"
 #include "MDE_print.h"
 
 
@@ -24,6 +26,11 @@ void MDE_warn(const char* file_name, int line_number, char* warning, ...) {
     va_end(args);
 
     fputc('\n', stderr);
+
+#ifdef MDE_EXIT_AT_WARNING
+    MDE_tracker_destroy();
+    exit(EXIT_FAILURE);
+#endif /* MDE_EXIT_AT_WARNING */
 }
 
 void MDE_err(const char* file_name, int line_number, char* error, ...) {
@@ -38,4 +45,9 @@ void MDE_err(const char* file_name, int line_number, char* error, ...) {
     va_end(args);
 
     fputc('\n', stderr);
+
+#ifdef MDE_EXIT_AT_ERROR
+    MDE_tracker_destroy();
+    exit(EXIT_FAILURE);
+#endif /* MDE_EXIT_AT_WARNING */
 }

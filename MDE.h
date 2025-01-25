@@ -9,6 +9,10 @@
 /* If defined, MDE versions of malloc and friends will be used. */
 #define MDE_DEBUG
 
+/* If defined together with MDE_DEBUG, MDE will call MDE_tracker_destroy() and terminate the running program immediately if a warning or an error is encountered respectively. */
+#define MDE_EXIT_AT_WARNING
+#define MDE_EXIT_AT_ERROR
+
 
 /**
  * @brief MDE extension of malloc(). Behaves like malloc(), but checks if @a size is 0, or allocation failed. Returns NULL if not enough memory for MDE is available.
@@ -32,7 +36,7 @@ extern void* MDE_malloc(size_t size, const char* file_name, int line_number);
 extern void* MDE_calloc(size_t nmemb, size_t size, const char* file_name, int line_number);
 
 /**
- * @brief MDE extension of realloc(). Behaves like realloc(), but checks if @a size is 0, or reallocation failed. 
+ * @brief MDE extension of realloc(). Behaves like realloc(), but checks if @a size is 0, or reallocation failed.
  * 
  * @param ptr Pointer to the memory area to be reallocated.
  * @param size New size of the array in bytes.
