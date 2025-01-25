@@ -10,8 +10,8 @@
 #define MDE_DEBUG
 
 /* If defined together with MDE_DEBUG, MDE will call MDE_tracker_destroy() and terminate the running program immediately if a warning or an error is encountered respectively. */
-#define MDE_EXIT_AT_WARNING
-#define MDE_EXIT_AT_ERROR
+// #define MDE_EXIT_AT_WARNING
+// #define MDE_EXIT_AT_ERROR
 
 
 /**
