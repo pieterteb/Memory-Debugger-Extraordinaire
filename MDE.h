@@ -26,6 +26,7 @@ extern void* MDE_realloc(void* ptr, size_t size);
 extern void MDE_free(void* ptr);
 
 extern void MDE_alloced_print(FILE* stream);
+extern void MDE_alloced_destroy();
 
 
 

@@ -105,3 +105,10 @@ extern void MDE_alloced_print(FILE* stream) {
            mde_alloced_.count, 
            total_size);
 }
+
+extern void MDE_alloced_destroy() {
+    free(mde_alloced_.ptrs);
+    free(mde_alloced_.sizes);
+
+    MDE_warn("Destroyed alloced.");
+}
