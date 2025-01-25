@@ -81,7 +81,7 @@ void MDE_alloced_set(void** old_ptr, void* new_ptr, size_t new_size) {
 }
 
 
-extern void MDE_alloced_print(FILE* stream) {
+extern void MDE_print_table(FILE* stream) {
     size_t total_size = 0;
 
     fputs("Address:       | Size (bytes):\n", stream);
@@ -97,7 +97,7 @@ extern void MDE_alloced_print(FILE* stream) {
            total_size);
 }
 
-extern void MDE_alloced_destroy() {
+extern void MDE_destroy() {
     free(mde_alloced_.ptrs);
     free(mde_alloced_.sizes);
 
