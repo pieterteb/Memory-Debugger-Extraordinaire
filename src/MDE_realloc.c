@@ -14,7 +14,9 @@
 extern void* MDE_realloc(void* ptr, size_t size) {
     void* new_ptr = realloc(ptr, size);
 
-    if (!new_ptr) {
+    if (!size) {
+        MDE_warn("Attempted to realloc to memory block of 0 bytes.");
+    } else if (!new_ptr) {
         MDE_warn("Failed to realloc memory block at %p to size %zu.", ptr, size);
         new_ptr = ptr;
     } else {
