@@ -7,11 +7,19 @@
 
 #include "MDE.h"
 #include "MDE_alloced.h"
+#include "MDE_memory.h"
 #include "MDE_print.h"
 
 
 
 extern void* MDE_malloc(size_t size, const char* file_name, int line_number) {
+    MDE_Memory* memory = MDE_memory_new();
+
+    if (!memory) {
+        MDE_err(file_name, line_number, "Not enough memory available for MDE.");
+        return NULL;
+    }
+
     void* ptr = malloc(size);
 
     if (!size) {
@@ -19,7 +27,9 @@ extern void* MDE_malloc(size_t size, const char* file_name, int line_number) {
     } else if (!ptr) {
         MDE_warn(file_name, line_number, "Failed to malloc memory block of size %zu.", size);
     } else {
-        MDE_alloced_add(ptr, size);
+        memory->ptr = ptr;
+        memory->size = size;
+        MDE_alloced_add(memory, file_name, line_number);
     }
 
     return ptr;
