@@ -15,6 +15,24 @@ MDE offers the following key features to enhance your debugging experience:
 
 ---
 
+## Usage
+
+To use the MDE versions of `malloc` and related functions, follow these steps:
+
+1. **Include `MDE.h`:** Add `#include "MDE.h"` to your `.c` file.  
+2. **Enable or Disable Debug Mode:**  
+   - **Enable Debug Mode**: Uncomment the `#define MDE_DEBUG` macro in your code or configuration.  
+   - **Disable Debug Mode**: Comment out the `#define MDE_DEBUG` macro.  
+
+3. **Control Program Exit Behavior on Warnings or Errors:**  
+   - To exit the program when warnings occur, uncomment the `#define MDE_EXIT_AT_WARNING` macro.  
+   - To exit the program when errors occur, uncomment the `#define MDE_EXIT_AT_ERROR` macro.  
+   - To disable this behavior, comment out the respective macros.
+
+These options provide flexibility in configuring MDE to suit your debugging needs.
+
+---
+
 ## Warning vs. Error
 
 MDE differentiates between warnings and errors to help you identify the severity of issues:
