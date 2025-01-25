@@ -110,5 +110,5 @@ extern void MDE_tracker_destroy(const char* file_name, int line_number) {
     }
     free(mde_tracker_.memories);
 
-    MDE_warn(file_name, line_number, "Destroyed alloced.");
+    MDE_warn(file_name, line_number, "Destroyed tracker.");
 }

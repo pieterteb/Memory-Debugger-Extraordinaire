@@ -29,7 +29,7 @@ extern void* MDE_calloc(size_t nmemb, size_t size, const char* file_name, int li
     } else {
         memory->ptr = ptr;
         memory->size = nmemb * size;
-        MDE_tracker_add(ptr, file_name, line_number);
+        MDE_tracker_add(memory, file_name, line_number);
     }
 
     return ptr;
