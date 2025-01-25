@@ -9,7 +9,7 @@
 /* If defined, MDE versions of malloc and friends will be used. */
 #define MDE_DEBUG
 
-/* If defined together with MDE_DEBUG, MDE will call MDE_tracker_destroy() and terminate the running program immediately if a warning or an error is encountered respectively. */
+/* If defined, MDE will call MDE_tracker_destroy() and terminate the running program immediately if a warning or an error is encountered respectively. */
 // #define MDE_EXIT_AT_WARNING
 // #define MDE_EXIT_AT_ERROR
 
