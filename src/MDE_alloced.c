@@ -80,12 +80,16 @@ size_t MDE_alloced_count() {
 
 extern void MDE_alloced_print(FILE* stream) {
     size_t total_size = 0;
+
+    /* Print table. */
     fputs("Address:       | Size (bytes):\n", stream);
     fputs("-------------------------------\n", stream);
     for (size_t i = 0; i < mde_alloced_.count; ++i) {
         fprintf(stream, "%p | %zu\n", mde_alloced_.ptrs[i], mde_alloced_.sizes[i]);
         total_size += mde_alloced_.sizes[i];
     }
+
+    /* Print totals. */
     fprintf(stream, "Total count: %zu\n"
            "Total size: %zu\n", 
            mde_alloced_.count, 
