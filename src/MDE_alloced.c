@@ -83,11 +83,6 @@ void MDE_alloced_set(void** old_ptr, void* new_ptr, size_t new_size) {
 }
 
 
-size_t MDE_alloced_count() {
-    return mde_alloced_.count;
-}
-
-
 extern void MDE_alloced_print(FILE* stream) {
     size_t total_size = 0;
 
