@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 /* This file must not use debug versions of malloc & friends. */
@@ -79,8 +80,10 @@ size_t MDE_alloced_count() {
 
 extern void MDE_alloced_print(FILE* stream) {
     size_t total_size = 0;
+    fputs("Address:       | Size (bytes):\n", stream);
+    fputs("-------------------------------\n", stream);
     for (size_t i = 0; i < mde_alloced_.count; ++i) {
-        fprintf(stream, "Address: %p | Size: %zu\n", mde_alloced_.ptrs[i], mde_alloced_.sizes[i]);
+        fprintf(stream, "%p | %zu\n", mde_alloced_.ptrs[i], mde_alloced_.sizes[i]);
         total_size += mde_alloced_.sizes[i];
     }
     fprintf(stream, "Total count: %zu\n"
