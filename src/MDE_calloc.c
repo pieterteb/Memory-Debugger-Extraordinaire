@@ -14,7 +14,9 @@
 extern void* MDE_calloc(size_t nmemb, size_t size) {
     void* ptr = calloc(nmemb, size);
 
-    if (!ptr) {
+    if (!(nmemb * size)) {
+        MDE_warn("Attempted to calloc memory block of 0 bytes.");
+    } else if (!ptr) {
         MDE_warn("Failed to calloc %zu memory block(s) of size %zu.", nmemb, size);
     } else {
         MDE_alloced_add(ptr, nmemb * size);
