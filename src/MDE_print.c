@@ -9,7 +9,7 @@ static void MDE_message(const char* file_name, int line_number);
 
 
 static void MDE_message(const char* file_name, int line_number) {
-    fprintf(stderr, "MDE | File:%s, Line:%d: ", file_name, line_number);
+    fprintf(stderr, "MDE (File:%s, Line:%d): ", file_name, line_number);
 }
 
 void MDE_warn(const char* file_name, int line_number, char* warning, ...) {

@@ -91,9 +91,9 @@ extern void MDE_tracker_print(FILE* stream) {
     fputs("---------------------------------------------------------------\n", stream);
     for (size_t i = 0; i < mde_tracker_.count; ++i) {
         if (mde_tracker_.memories[i]->comment) {
-            fprintf(stream, "%p | %zu | %zu | %s\n", mde_tracker_.memories[i]->ptr, mde_tracker_.memories[i]->size, mde_tracker_.memories[i]->times_reallocated, mde_tracker_.memories[i]->comment);
+            fprintf(stream, "%13p | %13zu | %18zu | %s\n", mde_tracker_.memories[i]->ptr, mde_tracker_.memories[i]->size, mde_tracker_.memories[i]->times_reallocated, mde_tracker_.memories[i]->comment);
         } else {
-            fprintf(stream, "%p | %zu | %zu | N/A\n", mde_tracker_.memories[i]->ptr, mde_tracker_.memories[i]->size, mde_tracker_.memories[i]->times_reallocated);
+            fprintf(stream, "%13p | %13zu | %18zu | N/A\n", mde_tracker_.memories[i]->ptr, mde_tracker_.memories[i]->size, mde_tracker_.memories[i]->times_reallocated);
         }
         total_size += mde_tracker_.memories[i]->size;
     }
