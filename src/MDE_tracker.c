@@ -37,7 +37,7 @@ void MDE_tracker_add(MDE_Memory* memory, const char* file_name, int line_number)
         mde_tracker_.memories = realloc(mde_tracker_.memories, mde_tracker_.size * sizeof(*mde_tracker_.memories));
 
         if (!mde_tracker_.memories) {
-            MDE_err(file_name, line_number, "Not enough memory available for MDE.");
+            MDE_err(file_name, line_number, "Not enough memory available for MDE tracker.");
             return;
         }
     }

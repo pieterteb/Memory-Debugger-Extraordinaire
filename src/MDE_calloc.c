@@ -16,7 +16,7 @@ extern void* MDE_calloc(size_t nmemb, size_t size, const char* file_name, int li
     MDE_Memory* memory = MDE_memory_new();
 
     if (!memory) {
-        MDE_err(file_name, line_number, "Not enough memory available for MDE.");
+        MDE_err(file_name, line_number, "Not enough memory available for MDE tracker.");
         return NULL;
     }
 
