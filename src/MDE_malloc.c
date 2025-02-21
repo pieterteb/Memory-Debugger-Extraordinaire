@@ -21,11 +21,13 @@ extern void* MDE_malloc(size_t size, const char* file_name, int line_number) {
         return NULL;
     }
 
-    void* ptr = malloc(size);
-
     if (!size) {
         MDE_warn(file_name, line_number, "Attempted to malloc memory block of 0 bytes. Implementation-defined behaviour.");
-    } else if (!ptr) {
+    }
+
+    void* ptr = malloc(size);
+
+    if (!ptr) {
         MDE_warn(file_name, line_number, "Failed to malloc memory block of size %zu.", size);
     } else {
         memory->ptr = ptr;
@@ -48,11 +50,13 @@ extern void* MDE_malloc_comment(size_t size, const char* file_name, int line_num
         return NULL;
     }
 
-    void* ptr = malloc(size);
-
     if (!size) {
         MDE_warn(file_name, line_number, "Attempted to malloc memory block of 0 bytes. Implementation-defined behaviour.");
-    } else if (!ptr) {
+    }
+
+    void* ptr = malloc(size);
+
+    if (!ptr) {
         MDE_warn(file_name, line_number, "Failed to malloc memory block of size %zu.", size);
     } else {
         memory->ptr = ptr;

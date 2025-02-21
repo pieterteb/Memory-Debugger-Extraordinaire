@@ -21,11 +21,13 @@ extern void* MDE_calloc(size_t nmemb, size_t size, const char* file_name, int li
         return NULL;
     }
 
-    void* ptr = calloc(nmemb, size);
-
     if (!(nmemb * size)) {
         MDE_warn(file_name, line_number, "Attempted to calloc memory block of 0 bytes. Implementation-defined behaviour.");
-    } else if (!ptr) {
+    }
+
+    void* ptr = calloc(nmemb, size);
+
+    if (!ptr) {
         MDE_warn(file_name, line_number, "Failed to calloc %zu memory block(s) of size %zu.", nmemb, size);
     } else {
         memory->ptr = ptr;
@@ -48,11 +50,13 @@ extern void* MDE_calloc_comment(size_t nmemb, size_t size, const char* file_name
         return NULL;
     }
 
-    void* ptr = calloc(nmemb, size);
-
     if (!(nmemb * size)) {
         MDE_warn(file_name, line_number, "Attempted to calloc memory block of 0 bytes. Implementation-defined behaviour.");
-    } else if (!ptr) {
+    }
+
+    void* ptr = calloc(nmemb, size);
+
+    if (!ptr) {
         MDE_warn(file_name, line_number, "Failed to calloc %zu memory block(s) of size %zu.", nmemb, size);
     } else {
         memory->ptr = ptr;
