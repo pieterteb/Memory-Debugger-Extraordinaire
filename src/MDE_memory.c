@@ -12,7 +12,7 @@
 
 
 
-MDE_Memory* MDE_memory_new() {
+MDE_Memory* MDE_memory_new(const char* file_name, int line_number) {
     MDE_Memory* memory = malloc(sizeof(*memory));
 
     if (memory) {
@@ -20,7 +20,10 @@ MDE_Memory* MDE_memory_new() {
         memory->size = 0;
         memory->comment = NULL;
         memory->times_reallocated = 0;
+    } else {
+        MDE_warn(file_name, line_number, "Not enough memory available for MDE tracker.");
     }
+
 
     return memory;
 }
