@@ -15,7 +15,7 @@ typedef struct MDE_Memory {
 } MDE_Memory;
 
 
-MDE_Memory* MDE_memory_new(const char* file_name, int line_number);
+MDE_Memory* MDE_memory_new();
 
 void MDE_memory_destroy(MDE_Memory* memory);
 

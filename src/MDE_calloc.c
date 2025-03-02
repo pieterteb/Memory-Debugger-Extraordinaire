@@ -14,7 +14,7 @@
 
 
 extern void* MDE_calloc(size_t nmemb, size_t size, const char* file_name, int line_number) {
-    MDE_Memory* memory = MDE_memory_new(file_name, line_number);
+    MDE_Memory* memory = MDE_memory_new();
 
     if (!memory) {
         MDE_err(file_name, line_number, "Not enough memory available for MDE tracker.");
@@ -43,7 +43,7 @@ extern void* MDE_calloc_comment(size_t nmemb, size_t size, const char* file_name
         return MDE_calloc(nmemb, size, file_name, line_number);
     }
 
-    MDE_Memory* memory = MDE_memory_new(file_name, line_number);
+    MDE_Memory* memory = MDE_memory_new();
 
     if (!memory) {
         MDE_err(file_name, line_number, "Not enough memory available for MDE tracker.");
