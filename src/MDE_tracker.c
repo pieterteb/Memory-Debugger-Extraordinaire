@@ -24,7 +24,7 @@ typedef struct MDE_Tracker {
 
 #ifdef MDE_DEBUG
 static MDE_Tracker mde_tracker_ = { NULL, 0, 0 };
-#endif
+#endif /* MDE_DEBUG */
 
 
 void MDE_tracker_add(MDE_Memory* memory, const char* file_name, int line_number) {
