@@ -124,7 +124,7 @@ extern void MDE_tracker_destroy(const char* file_name, int line_number);
 #endif /* MDE_NO_DEBUG_MEM */
 
 #if defined(MDE_DEBUG) && !defined(MDE_NO_DEBUG_MEM)
-#   define malloc(size)                                             MDE_malloc((size))
+#   define malloc(size)                                             MDE_malloc(size)
 #   define calloc(nmemb, size)                                      MDE_calloc((nmemb), (size))
 #   define realloc(ptr, size)                                       MDE_realloc((ptr), (size))
 
@@ -132,7 +132,7 @@ extern void MDE_tracker_destroy(const char* file_name, int line_number);
 #   define calloc_comment(nmemb, size, formatted_comment, ...)      MDE_calloc_comment((nmemb), (size), (formatted_comment), ##__VA_ARGS__)
 #   define realloc_comment(ptr, size, formatted_comment, ...)       MDE_realloc_comment((ptr), (size), (formatted_comment), ##__VA_ARGS__)
 
-#   define free(ptr)                                                MDE_free((ptr))
+#   define free(ptr)                                                MDE_free(ptr)
 #endif /* defined(MDE_DEBUG) && !defined(MDE_NO_DEBUG_MEM) */
 
 
