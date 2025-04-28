@@ -109,7 +109,7 @@ extern void MDE_tracker_print(FILE* stream);
 extern void MDE_tracker_destroy(const char* file_name, int line_number);
 
 
-#ifndef MDE_NO_DEBUG_MEM
+#ifndef MDE_NO_DEBUG
 #   define MDE_malloc(size)                                         MDE_malloc((size), (__FILE__), (__LINE__))
 #   define MDE_calloc(nmemb, size)                                  MDE_calloc((nmemb), (size), (__FILE__), (__LINE__))
 #   define MDE_realloc(ptr, size)                                   MDE_realloc((ptr), (size), (__FILE__), (__LINE__))
@@ -121,9 +121,9 @@ extern void MDE_tracker_destroy(const char* file_name, int line_number);
 #   define MDE_free(ptr)                                            MDE_free((ptr), (__FILE__), (__LINE__))
 
 #   define MDE_tracker_destroy()                                    MDE_tracker_destroy((__FILE__), (__LINE__))
-#endif /* MDE_NO_DEBUG_MEM */
+#endif /* MDE_NO_DEBUG */
 
-#if defined(MDE_DEBUG) && !defined(MDE_NO_DEBUG_MEM)
+#if defined(MDE_DEBUG) && !defined(MDE_NO_DEBUG)
 #   define malloc(size)                                             MDE_malloc(size)
 #   define calloc(nmemb, size)                                      MDE_calloc((nmemb), (size))
 #   define realloc(ptr, size)                                       MDE_realloc((ptr), (size))
@@ -133,7 +133,7 @@ extern void MDE_tracker_destroy(const char* file_name, int line_number);
 #   define realloc_comment(ptr, size, formatted_comment, ...)       MDE_realloc_comment((ptr), (size), (formatted_comment), ##__VA_ARGS__)
 
 #   define free(ptr)                                                MDE_free(ptr)
-#endif /* defined(MDE_DEBUG) && !defined(MDE_NO_DEBUG_MEM) */
+#endif /* defined(MDE_DEBUG) && !defined(MDE_NO_DEBUG) */
 
 
 

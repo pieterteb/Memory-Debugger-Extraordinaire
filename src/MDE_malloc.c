@@ -1,10 +1,8 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-
 /* This file must not use debug version of malloc(). */
-#define MDE_NO_DEBUG_MEM
-
+#define MDE_NO_DEBUG
 
 #include "MDE.h"
 #include "MDE_memory.h"

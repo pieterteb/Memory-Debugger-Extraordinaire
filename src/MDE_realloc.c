@@ -1,9 +1,7 @@
 #include <stdlib.h>
 
-
-/* This file must n ot use debug version of realloc(). */
-#define MDE_NO_DEBUG_MEM
-
+/* This file must not use debug version of realloc(). */
+#define MDE_NO_DEBUG
 
 #include "MDE.h"
 #include "MDE_print.h"

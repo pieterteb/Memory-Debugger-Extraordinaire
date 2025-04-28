@@ -49,5 +49,5 @@ void MDE_err(const char* file_name, int line_number, char* error, ...) {
 #ifdef MDE_EXIT_AT_ERROR
     MDE_tracker_destroy();
     exit(EXIT_FAILURE);
-#endif /* MDE_EXIT_AT_WARNING */
+#endif /* MDE_EXIT_AT_ERROR */
 }

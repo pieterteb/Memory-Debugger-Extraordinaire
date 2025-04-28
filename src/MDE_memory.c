@@ -2,10 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 /* This file must not use debug versions of malloc & friends. */
-#define MDE_NO_DEBUG_MEM
-
+#define MDE_NO_DEBUG
 
 #include "MDE_memory.h"
 #include "MDE_print.h"

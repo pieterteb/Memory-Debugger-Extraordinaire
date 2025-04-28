@@ -1,10 +1,8 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-
-/* This file must not use debug version calloc. */
-#define MDE_NO_DEBUG_MEM
-
+/* This file must not use debug version of calloc(). */
+#define MDE_NO_DEBUG
 
 #include "MDE.h"
 #include "MDE_memory.h"

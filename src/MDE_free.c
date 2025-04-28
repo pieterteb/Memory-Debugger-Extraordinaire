@@ -1,9 +1,7 @@
 #include <stdlib.h>
 
-
 /* This file must not use debug version of free(). */
-#define MDE_NO_DEBUG_MEM
-
+#define MDE_NO_DEBUG
 
 #include "MDE.h"
 #include "MDE_tracker.h"
